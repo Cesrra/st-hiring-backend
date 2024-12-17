@@ -1,6 +1,15 @@
 {
   "verbose": true,
-  "ignore": ["*.test.js", "**/fixtures/**"],
+  "ignore": [
+    "*.test.js",
+    "**/fixtures/**",
+    "dist/**/*",
+    "node_modules/**/*"
+  ],
+  "watch": [
+    "src"
+  ],
+  "ext": "ts,json",
   "execMap": {
     "ts": "ts-node"
   }

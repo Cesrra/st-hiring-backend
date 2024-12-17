@@ -10,6 +10,7 @@
     },
     "scripts": {
         "start": "yarn nodemon src/index.ts",
+        "build": "tsc",
         "lint": "eslint src/**/*.ts",
         "lint:fix": "eslint src/**/*.ts --fix",
         "format": "prettier --write src/**/*.ts",
