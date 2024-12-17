@@ -1,6 +1,6 @@
 import express from 'express';
 import { knex } from 'knex';
-import dbConfig  from './knexfile';
+import dbConfig from './knexfile';
 import { createEventDAL } from './dal/events.dal';
 import { createTicketDAL } from './dal/tickets.dal';
 import { createGetEventsController } from './controllers/get-events';
@@ -11,7 +11,6 @@ const Knex = knex(dbConfig.development);
 // Initialize DALs
 const eventDAL = createEventDAL(Knex);
 const TicketDAL = createTicketDAL(Knex);
-
 
 const app = express();
 
@@ -26,5 +25,5 @@ app.use('/', (_req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log('Server Started')
+  console.log('Server Started');
 });

@@ -918,6 +918,7 @@ __metadata:
     "@types/jest": ^29.5.12
     "@types/node": ^18.11.9
     "@typescript-eslint/eslint-plugin": ^8.18.1
+    "@typescript-eslint/parser": ^8.18.1
     eslint: ^9.6.0
     eslint-config-prettier: ^9.1.0
     eslint-plugin-jest: ^28.9.0
@@ -1249,6 +1250,22 @@ __metadata:
     eslint: ^8.57.0 || ^9.0.0
     typescript: ">=4.8.4 <5.8.0"
   checksum: 662e416f7b1baaa20056495168f79994ce72396cef51bedb5efe9d35fd2b799eae6ad8a2aff1edebb2dc472d91216a43a0ac65f33300285db32f80e71b65f28c
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/parser@npm:^8.18.1":
+  version: 8.18.1
+  resolution: "@typescript-eslint/parser@npm:8.18.1"
+  dependencies:
+    "@typescript-eslint/scope-manager": 8.18.1
+    "@typescript-eslint/types": 8.18.1
+    "@typescript-eslint/typescript-estree": 8.18.1
+    "@typescript-eslint/visitor-keys": 8.18.1
+    debug: ^4.3.4
+  peerDependencies:
+    eslint: ^8.57.0 || ^9.0.0
+    typescript: ">=4.8.4 <5.8.0"
+  checksum: f79e027cefde0b9c08e28153159aaaa40dad26bc1afc28ef811f5afd33c8018fb66066b5bdae018d675b672b8934a0238454d6f96477e984762443dd82bd23f5
   languageName: node
   linkType: hard
 

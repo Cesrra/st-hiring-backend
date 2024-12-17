@@ -1,26 +1,26 @@
-import type { Knex } from "knex";
+import type { Knex } from 'knex';
 
 const dbConfig: { [key: string]: Knex.Config } = {
   development: {
-    client: "postgresql",
+    client: 'postgresql',
     connection: {
-      host: "localhost",
+      host: 'localhost',
       ssl: false,
       port: 5432,
-      user: "root",
-      password: "example",
-      database: "seetickets",
+      user: 'root',
+      password: 'example',
+      database: 'seetickets',
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
     migrations: {
-      tableName: "knex_migrations",
-      directory: "./database/migrations",
+      tableName: 'knex_migrations',
+      directory: './database/migrations',
     },
     seeds: {
-      directory: "./database/seeds",
+      directory: './database/seeds',
     },
   },
 };

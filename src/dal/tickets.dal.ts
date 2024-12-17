@@ -11,4 +11,4 @@ export const createTicketDAL = (knex: Knex): TicketsDAL => {
       return await knex<Ticket>('tickets').select('*').where('event_id', eventId);
     },
   };
-}
+};

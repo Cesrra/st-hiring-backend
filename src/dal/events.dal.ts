@@ -11,4 +11,4 @@ export const createEventDAL = (knex: Knex): EventDAL => {
       return await knex<Event>('events').select('*').limit(limit);
     },
   };
-}
+};
