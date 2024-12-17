@@ -7,13 +7,14 @@
     "rootDir": "src",
     "outDir": "dist",
     "types": ["jest", "node"],
-    "noUnusedParameters": false,
+    "noUnusedParameters": true,
     // Emit options
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "preserveConstEnums": true,
     "esModuleInterop": true,
+    "moduleResolution": "node",
 
     // Type Checking Options
     "noUnusedLocals": true,
@@ -30,6 +31,10 @@
 
     // Completeness options
     "skipDefaultLibCheck": true,
+
+    "strict": true,
+
+    "lib": ["es2020", "dom"],
 
     "plugins": [{ "transform": "ts-auto-mock/transformer", "cacheBetweenTests": false }]
   }
