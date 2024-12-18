@@ -919,6 +919,7 @@ __metadata:
     "@types/node": ^18.11.9
     "@typescript-eslint/eslint-plugin": ^8.18.1
     "@typescript-eslint/parser": ^8.18.1
+    dotenv: ^16.4.7
     eslint: ^9.6.0
     eslint-config-prettier: ^9.1.0
     eslint-plugin-jest: ^28.9.0
@@ -2093,6 +2094,13 @@ __metadata:
   version: 4.0.2
   resolution: "diff@npm:4.0.2"
   checksum: f2c09b0ce4e6b301c221addd83bf3f454c0bc00caa3dd837cf6c127d6edf7223aa2bbe3b688feea110b7f262adbfc845b757c44c8a9f8c0c5b15d8fa9ce9d20d
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.4.7":
+  version: 16.4.7
+  resolution: "dotenv@npm:16.4.7"
+  checksum: c27419b5875a44addcc56cc69b7dc5b0e6587826ca85d5b355da9303c6fc317fc9989f1f18366a16378c9fdd9532d14117a1abe6029cc719cdbbef6eaef2cea4
   languageName: node
   linkType: hard
 

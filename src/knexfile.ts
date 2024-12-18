@@ -1,30 +1,26 @@
 import type { Knex } from 'knex';
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+console.log(process.env.DATABASE_URL)
 
 const dbConfig: { [key: string]: Knex.Config } = {
   development: {
-    client: 'postgresql',
-    connection: {
-      host: 'localhost',
-      ssl: false,
-      port: 5432,
-      user: 'root',
-      password: 'example',
-      database: 'seetickets',
-    },
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
     pool: {
       min: 2,
       max: 10,
     },
     migrations: {
       tableName: 'knex_migrations',
-      directory: './database/migrations',
+      directory: path.resolve(__dirname, './database/migrations'),
     },
     seeds: {
-      directory: './database/seeds',
+      directory: path.resolve(__dirname, './database/seeds'),
     },
   },
 };
-
-module.exports = dbConfig;
 
 export default dbConfig;
