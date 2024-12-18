@@ -9,7 +9,7 @@ export const settingsSchema = z.object({
         order: z.number(),
         isDefault: z.boolean(),
         selected: z.boolean(),
-      })
+      }),
     )
     .nonempty(),
 

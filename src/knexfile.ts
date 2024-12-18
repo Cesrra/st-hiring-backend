@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
-console.log(process.env.DATABASE_URL)
 
 const dbConfig: { [key: string]: Knex.Config } = {
   development: {

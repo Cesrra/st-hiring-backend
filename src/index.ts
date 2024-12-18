@@ -32,10 +32,12 @@ const initializeRoutes = async () => {
   app.use('/', settingsRoutes(settingsController));
 };
 
-initializeRoutes().then(() => {
-  app.listen(3000, () => {
-    console.log('Server Started');
+initializeRoutes()
+  .then(() => {
+    app.listen(3000, () => {
+      console.log('Server Started');
+    });
+  })
+  .catch((err) => {
+    console.error('Error initializing routes:', err);
   });
-}).catch(err => {
-  console.error('Error initializing routes:', err);
-});

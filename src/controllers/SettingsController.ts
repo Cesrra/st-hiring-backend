@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import { SettingsDAL } from '../dal/settings.dal';
 import { settingsSchema } from '../validators/settingsCalidator';
 
-
 export class SettingsController {
   private settingsDAL: SettingsDAL;
 
