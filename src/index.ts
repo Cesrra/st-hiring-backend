@@ -4,6 +4,14 @@ import dbConfig from './knexfile';
 import { createEventDAL } from './dal/events.dal';
 import { createTicketDAL } from './dal/tickets.dal';
 import { createGetEventsController } from './controllers/get-events';
+import { connectToMongo } from './database/mongoClient';
+import { SettingsDAL } from './dal/settings.dal';
+import { SettingsController } from './controllers/SettingsController';
+import { settingsRoutes } from './routes/settingsRoutes';
+
+// Initialize Express App
+const app = express();
+app.use(express.json());
 
 // initialize Knex
 const Knex = knex(dbConfig.development);
@@ -12,18 +20,22 @@ const Knex = knex(dbConfig.development);
 const eventDAL = createEventDAL(Knex);
 const TicketDAL = createTicketDAL(Knex);
 
-const app = express();
+// Connect to MongoDB and Initialize Settings DAL/Controller
+const initializeRoutes = async () => {
+  const mongoDb = await connectToMongo();
+  const settingsDAL = new SettingsDAL(mongoDb);
+  const settingsController = new SettingsController(settingsDAL);
 
-app.use('/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
+  // Routes
+  app.use('/health', (_req, res) => res.json({ status: 'ok' }));
+  app.use('/events', createGetEventsController({ eventsDAL: eventDAL, ticketsDAL: TicketDAL }));
+  app.use('/', settingsRoutes(settingsController));
+};
 
-app.use('/events', createGetEventsController({ eventsDAL: eventDAL, ticketsDAL: TicketDAL }));
-
-app.use('/', (_req, res) => {
-  res.json({ message: 'Hello API' });
-});
-
-app.listen(3000, () => {
-  console.log('Server Started');
+initializeRoutes().then(() => {
+  app.listen(3000, () => {
+    console.log('Server Started');
+  });
+}).catch(err => {
+  console.error('Error initializing routes:', err);
 });
