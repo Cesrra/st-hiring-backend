@@ -15,6 +15,7 @@
     "preserveConstEnums": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
+    "typeRoots": ["./node_modules/@types", "./src/types"],
 
     // Type Checking Options
     "noUnusedLocals": true,

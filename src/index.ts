@@ -8,10 +8,18 @@ import { connectToMongo } from './database/mongoClient';
 import { SettingsDAL } from './dal/settings.dal';
 import { SettingsController } from './controllers/SettingsController';
 import { settingsRoutes } from './routes/settingsRoutes';
+import cors from 'cors';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 // Initialize Express App
 const app = express();
 app.use(express.json());
+
+// CORS Configuration
+const corsOrigin = process?.env.CORS_ORIGIN;
+app.use(cors({ origin: corsOrigin }));
 
 // initialize Knex
 const Knex = knex(dbConfig.development);
